@@ -1,0 +1,6 @@
+@Contactos.Api_HostAddress = http://localhost:5296
+
+GET {{Contactos.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
