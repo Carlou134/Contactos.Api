@@ -1,4 +1,5 @@
-﻿using Contactos.Domain;
+﻿using Contactos.Application.Dtos;
+using Contactos.Domain;
 using Contactos.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -16,11 +17,12 @@ namespace Contactos.Infrastructure.Repositories
             _logger = logger;
         }
 
-        public async Task<IReadOnlyCollection<Contacto>> listContactos()
+        public async Task<IReadOnlyCollection<ContactDto>> listContactos()
         {
             try
             {
-                return await _context.Contacto.AsNoTracking().ToListAsync();
+                var sql = "exec sp_listarContactos";
+                return await _context.Database.SqlQueryRaw<ContactDto>(sql).ToArrayAsync();
             }
             catch (Exception ex)
             {

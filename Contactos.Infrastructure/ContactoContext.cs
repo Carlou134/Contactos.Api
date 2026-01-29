@@ -1,4 +1,5 @@
-﻿using Contactos.Domain;
+﻿using Contactos.Application.Dtos;
+using Contactos.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

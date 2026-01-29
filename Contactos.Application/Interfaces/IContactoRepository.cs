@@ -1,8 +1,10 @@
-﻿namespace Contactos.Domain.Interfaces
+﻿using Contactos.Application.Dtos;
+
+namespace Contactos.Domain.Interfaces
 {
     public interface IContactoRepository
     {
-        Task<IReadOnlyCollection<Contacto>> listContactos();
+        Task<IReadOnlyCollection<ContactDto>> listContactos();
         Task<bool> CreateContacto(Contacto contacto);
         Task<bool> UpdateContacto(Contacto contacto);
         Task<bool> DeleteContacto(int id);

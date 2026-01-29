@@ -1,3 +1,6 @@
+using Contactos.Application.Interfaces;
+using Contactos.Application.Mappings;
+using Contactos.Application.Services;
 using Contactos.Domain.Interfaces;
 using Contactos.Infrastructure;
 using Contactos.Infrastructure.Repositories;
@@ -9,6 +12,13 @@ var connectionString = builder.Configuration.GetConnectionString("dbContactos");
 builder.Services.AddSqlServer<ContactoContext>(builder.Configuration.GetConnectionString("dbContactos"));
 
 builder.Services.AddScoped<IContactoRepository, ContactoRepository>();
+builder.Services.AddScoped<IContactoService, ContactoService>();
+
+builder.Services.AddAutoMapper(cfg =>
+{
+    cfg.AddProfile<ContactMappingProfile>();
+});
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
