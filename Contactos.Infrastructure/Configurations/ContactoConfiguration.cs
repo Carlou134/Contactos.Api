@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Contactos.Domain;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Contactos.Infrastructure.Configurations
 {
-    public class ContactosConfiguration : IEntityTypeConfiguration<Contactos.Domain.Contactos>
+    public class ContactoConfiguration : IEntityTypeConfiguration<Contacto>
     {
-        public void Configure(EntityTypeBuilder<Contactos.Domain.Contactos> builder)
+        public void Configure(EntityTypeBuilder<Contacto> builder)
         {
             builder.ToTable("Contactos");
 

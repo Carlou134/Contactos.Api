@@ -1,13 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Contactos.Domain;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Contactos.Infrastructure
 {
-    public class ContactosContext : DbContext
+    public class ContactoContext : DbContext
     {
-        public ContactosContext(DbContextOptions options) : base(options){}
+        public ContactoContext(DbContextOptions options) : base(options){}
 
-        public DbSet<Contactos.Domain.Contactos> Contactos { get; set; }
+        public DbSet<Contacto> Contacto { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
