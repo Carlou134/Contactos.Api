@@ -8,6 +8,18 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        policy =>
+        {
+            policy
+                .WithOrigins("http://localhost:4200")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
 var connectionString = builder.Configuration.GetConnectionString("dbContactos");
 builder.Services.AddSqlServer<ContactoContext>(builder.Configuration.GetConnectionString("dbContactos"));
 
