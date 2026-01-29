@@ -16,9 +16,17 @@ namespace Contactos.Infrastructure.Repositories
             _logger = logger;
         }
 
-        public Task<IReadOnlyCollection<Contacto>> listContactos()
+        public async Task<IReadOnlyCollection<Contacto>> listContactos()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _context.Contacto.AsNoTracking().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error consulting the order in database");
+                throw;
+            }
         }
 
         public async Task<bool> CreateContacto(Contacto contacto)
