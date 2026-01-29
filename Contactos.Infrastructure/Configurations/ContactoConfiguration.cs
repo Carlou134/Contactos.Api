@@ -14,7 +14,7 @@ namespace Contactos.Infrastructure.Configurations
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
             builder.Property(x => x.Nombre).IsRequired();
-            builder.Property(x => x.Teléfono).IsRequired();
+            builder.Property(x => x.Telefono).IsRequired();
         }
     }
 }
